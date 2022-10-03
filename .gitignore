@@ -30,3 +30,13 @@
 *.exe
 *.out
 *.app
+
+# Folders
+*build
+
+# My settings
+*.vs
+*.vscode
+*.git
+*.vcxproj
+*.sln
