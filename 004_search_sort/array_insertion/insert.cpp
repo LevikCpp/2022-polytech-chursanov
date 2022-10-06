@@ -2,23 +2,14 @@
 
 int *insert(int arr[], int n, int x, int p)
 {
-    int *n_arr = new int [n];
-    
-    for (int i = 0; i < n; i++)
+    for (auto i = n + 1; i > p; i--)
     {
-        if (i == p)
-        {
-            n_arr[i] = x;
-            n_arr[i + 1] = arr[i];
-            i++;
-        }
-        else
-        {
-             n_arr[i] = arr[i];
-        }
+        arr[i] = arr[i - 1];       
     }
 
-    return n_arr;
+    arr[p] = x;
+    
+    return arr;
 }
 
 int search_position(int arr[], int n, int x)
@@ -36,11 +27,11 @@ int search_position(int arr[], int n, int x)
 
 int main()
 {
-    int test_arr[] = {1, 2, 4, 5, 6};
+    int test_arr[] = {1, 2, 3, 5, 6};
 
-    auto temp = insert(test_arr, sizeof(test_arr) / sizeof(int) + 1, 3, 3);
+    auto temp = insert(test_arr, (sizeof(test_arr) / sizeof(int)) + 1, 4, 3);
     
-    for (int i = 0; i < 5 ; i++)
+    for (int i = 0; i < 6 ; i++)
     {
         std::cout << i << ") " << temp[i] << std::endl;
     }
