@@ -35,13 +35,45 @@ int *insert_sorted(int arr[], int n, int x)
 int main()
 {
     int test_arr[] = {1, 2, 3, 5, 6};
-
-    auto temp = insert(test_arr, (sizeof(test_arr) / sizeof(int)) + 1, 4, 3);
+    int num = 4;
+    auto temp = insert(test_arr, (sizeof(test_arr) / sizeof(int)) + 1, num, 3);
     
-    for (int i = 0; i < 6 ; i++)
+    //------1
+    std::cout << "Test 1" "\n";
+
+    for (int i = 0; i < (sizeof(test_arr) / sizeof(int)) + 1; i++)
     {
-        std::cout << i << ") " << temp[i] << std::endl;
+        std::cout << i << ") " << temp[i] << "\n";
+    }
+
+    //delete temp;
+    
+
+    //------2
+    auto temp2 = search_position(test_arr, (sizeof(test_arr) / sizeof(int)) + 1, num);
+
+    std::cout << "Test 2" "\n";
+
+    std::cout << "Position of " << num << " is " << temp2 << std::endl;
+    
+    if (temp2 == 4)
+    {
+        std::cout << "true" << std::endl;
     }
     
+    
+    //------3
+    auto temp3 = insert_sorted(test_arr, 10, 5);
+    
+    std::cout << "Test 3" "\n";
+
+    for (auto i = 0; i < (sizeof(test_arr) / sizeof(int)) + 1; ++i)
+    {
+        std::cout << i << ") " << temp3[i] << "\n";
+    }
+
+    //delete temp3;
+
+
     return 0;
 }
