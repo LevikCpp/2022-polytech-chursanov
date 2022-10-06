@@ -14,7 +14,7 @@ int *insert(int arr[], int n, int x, int p)
 
 int search_position(int arr[], int n, int x)
 {
-    for (auto i = 0; i < n - 1; ++i) 
+    for (auto i = 0; i < n - 1; i++) 
     {
         if (arr[i] >= x)
         {
@@ -23,6 +23,13 @@ int search_position(int arr[], int n, int x)
     }
 
     return n;
+}
+
+int *insert_sorted(int arr[], int n, int x)
+{
+    int p = search_position(arr, n, x);
+    
+    return insert(arr, n, x, p);
 }
 
 int main()
@@ -36,7 +43,5 @@ int main()
         std::cout << i << ") " << temp[i] << std::endl;
     }
     
-    
-
     return 0;
 }
