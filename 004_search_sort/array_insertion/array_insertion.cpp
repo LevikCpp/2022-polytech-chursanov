@@ -36,7 +36,7 @@ int main()
 {
     int test_arr[] = {1, 2, 3, 5, 6};
     int num = 4;
-    auto temp = insert(test_arr, (sizeof(test_arr) / sizeof(int)) + 1, num, 3);
+    auto temp = insert(test_arr, (sizeof(test_arr) / sizeof(int)), num, 3);
     
     //------1
     std::cout << "Test 1" "\n";
