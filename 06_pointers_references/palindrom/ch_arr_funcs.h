@@ -10,52 +10,56 @@ unsigned int length(const char *str)
   while (*end_pos != '\0')
     *end_pos++;
 
-  // std::cout << end_pos - str << std::endl;
   return end_pos - str;
 }
 
 unsigned int ch_quantity(const char *str, const char ch)
 {
   unsigned int quantity = 0;
+  unsigned int num = length(str);
 
-  for (int i = 0; i < length(str); i++)
+  for (int i = 0; i < num; i++)
   {
     if (str[i] == ch)
       quantity++;
   }
 
-  std::cout << quantity << std::endl;
   return quantity;
 }
 
-const char *ch_del(const char *str, const char ch = ' ')
+char *ch_del(const char *str, const char ch = ' ')
 {
-  unsigned int del_quantity = length(str) - ch_quantity(str, ch);
+  unsigned int num = length(str);
+  unsigned int del_quantity = num - ch_quantity(str, ch);
   char *new_str = new char[del_quantity];
 
-  for (int i = 0; i < length(str); i++) // problem here, ignore cycle
+  for (auto i = 0, j = 0; i < num; i++) // need rework
   {
-    if (str[i] != ch)
-      new_str[i] == str[i];
+    if (str[i + j] == ' ')
+    {
+      new_str[i] = str[i + j + 1];
+      j++;
+    }
+    else
+      new_str[i] = str[i + j];
   }
+
+  // for (auto i = 0; i < 7; i++)
+  // {
+  //   std::cout << new_str[i] << std::endl;
+  // }
 
   return new_str;
 }
 
-void ch_out(const char *str)
-{
-  for (auto i = 0; i < length(str); i++)
-  {
-    std::cout << i << ". " << str[i] << "\n";
-  }
-}
-
 void str_out(const char *str)
 {
-  std::cout << "full string: ";
+  unsigned int num = length(str);
+  std::cout << "full string is: ";
 
   for (auto i = 0; i < length(str); i++)
   {
     std::cout << str[i];
   }
+  std::cout << "; ";
 }

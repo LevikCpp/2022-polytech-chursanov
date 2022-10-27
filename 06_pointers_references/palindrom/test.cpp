@@ -17,18 +17,18 @@ bool is_palindrom(const char *str)
 
 int main()
 {
-  const char a[] = {"fuck you"};
-  // str_out(a);
+  str_out(ch_del("some text", ' '));
 
-  str_out(ch_del(a, ' '));
-  // assert(is_palindrom("tenet"));
-
+  assert(is_palindrom("tenet"));
   if (is_palindrom(ch_del("tenet", ' ')))
     str_out(ch_del("tenet", ' '));
 
+  assert(is_palindrom(ch_del("taco cat", ' ')));
+
   if (is_palindrom(ch_del("taco cat", ' ')))
     str_out(ch_del("taco cat", ' '));
-  assert(is_palindrom(ch_del("taco cat", ' ')));
+
+  assert(is_palindrom(ch_del("is this palindrom?")));
 
   return 0;
 }
