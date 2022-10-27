@@ -1,8 +1,7 @@
 #include "ch_arr_funcs.h"
 #include <cassert>
 
-
-bool is_palindrom(const char* str)
+bool is_palindrom(const char *str)
 {
   if (!str)
     return false;
@@ -18,13 +17,16 @@ bool is_palindrom(const char* str)
 
 int main()
 {
-  assert(is_palindrom("tenet"));
-  
-  if(is_palindrom(ch_del("tenet", ' ')))
+  const char a[] = {"fuck you"};
+  // str_out(a);
+
+  str_out(ch_del(a, ' '));
+  // assert(is_palindrom("tenet"));
+
+  if (is_palindrom(ch_del("tenet", ' ')))
     str_out(ch_del("tenet", ' '));
 
-
-  if(is_palindrom(ch_del("taco cat", ' ')))
+  if (is_palindrom(ch_del("taco cat", ' ')))
     str_out(ch_del("taco cat", ' '));
   assert(is_palindrom(ch_del("taco cat", ' ')));
 
