@@ -54,5 +54,4 @@ const double abs() const
 {
   return sqrt(this._Re * this._Re + this._Im * this._Im);
 }
-
 };
