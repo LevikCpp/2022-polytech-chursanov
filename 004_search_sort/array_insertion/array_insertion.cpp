@@ -1,8 +1,8 @@
-#include <iostream>
+#include <cassert>
 
 int *insert(int arr[], int n, int x, int p)
 {
-    for (auto i = n + 1; i > p; i--)
+    for (auto i = n; i > p; i--)
     {
         arr[i] = arr[i - 1];       
     }
@@ -34,46 +34,30 @@ int *insert_sorted(int arr[], int n, int x)
 
 int main()
 {
-    int test_arr[] = {1, 2, 3, 5, 6};
-    int num = 4;
-    auto temp = insert(test_arr, (sizeof(test_arr) / sizeof(int)), num, 3);
-    
-    //------1
-    std::cout << "Test 1" "\n";
+    int arr0[10] =      { 0, 1, 2, 3,      4, 5, 6, 7, 8, 9 };
+    int expected0[11] = { 0, 1, 2, 3, 100, 4, 5, 6, 7, 8, 9 };
 
-    for (int i = 0; i < (sizeof(test_arr) / sizeof(int)) + 1; i++)
+    auto r0 = insert(arr0, 10, 100, 4);
+    for (auto i = 0; i < 11; i++)
     {
-        std::cout << i << ") " << temp[i] << "\n";
+        assert(r0[i] == expected0[i]);
     }
 
-    //delete temp;
-    
 
-    //------2
-    auto temp2 = search_position(test_arr, (sizeof(test_arr) / sizeof(int)) + 1, num);
+    // search_position` example
+    int arr1[4] = { 1, 3, 5, 6 };
+    assert(search_position(arr1, 4, 5) == 2);
 
-    std::cout << "Test 2" "\n";
 
-    std::cout << "Position of " << num << " is " << temp2 << std::endl;
-    
-    if (temp2 == 4)
+    // insert_sorted
+    int arr2[10] =      { 0, 1, 2, 3, 4, 5,    6, 7, 8, 9 };
+    int expected2[11] = { 0, 1, 2, 3, 4, 5, 5, 6, 7, 8, 9 };
+
+    auto r4 = insert_sorted(arr2, 10, 5);
+    for (auto i = 0; i < 11; i++)
     {
-        std::cout << "true" << std::endl;
+        assert(r4[i] == expected2[i]);
     }
-    
-    
-    //------3
-    auto temp3 = insert_sorted(test_arr, 10, 5);
-    
-    std::cout << "Test 3" "\n";
-
-    for (auto i = 0; i < (sizeof(test_arr) / sizeof(int)) + 1; ++i)
-    {
-        std::cout << i << ") " << temp3[i] << "\n";
-    }
-
-    //delete temp3;
-
 
     return 0;
 }

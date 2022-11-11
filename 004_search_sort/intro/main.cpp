@@ -37,7 +37,5 @@ int main()
         std::cout << "Error";
     }
 
-    std::cout << std::endl;
-
     return 0;
 }

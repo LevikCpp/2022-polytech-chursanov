@@ -1,53 +1,57 @@
 #include <cmath>
-class complex
+
+template <typename TYPE>
+class custom_complex
 {
 private:
-  int _Re, _Im; // вещественная и мнимая части
+  TYPE _Re, _Im; // вещественная и мнимая части
 
 public:
-  complex();
-  complex(int Re, int Im);
-  ~complex();
+  // custom_complex();
+  // custom_complex(TYPE Re, TYPE Im);
+  // ~custom_complex();
 
-  const complex operator+(const complex cmpl) const;
-  const complex operator-(const complex cmpl) const;
-  //void operator=(const complex cmpl);
-  const bool operator==(const complex cmpl) const;
-  const double abs() const;
-};
+  // const custom_complex operator+(const custom_complex cmpl) const;
+  // const custom_complex operator-(const custom_complex cmpl) const;
+  // //custom_complex operator=(const custom_complex cmpl);
+  // const bool operator==(const custom_complex cmpl) const;
+  // const double abs() const;
 
-complex::complex()
-{
-  _Re, _Im = 0;
-}
+  custom_complex(){
+    _Re, _Im = 0;
+  }
 
-complex::complex(int Re, int Im)
-{
-  _Re = Re;
-  _Im = Im;
-}
-complex::~complex()
-{
-  _Re, _Im = 0;
-}
-// void operator=(const complex cmpl)
-// {
-//   this._Re = cmpl._Re
-//   this._Im = cmpl._Im
-// }
-const complex complex::operator+(const complex cmpl) const
-{
-  return complex(_Re + cmpl._Re, _Im + cmpl._Im);
-}
-const complex complex::operator-(const complex cmpl) const
-{
-  return complex(_Re - cmpl._Re, _Im - cmpl._Im);
-}
-const bool complex::operator==(const complex cmpl) const
-{
-  return _Re == cmpl._Re && _Im == cmpl._Im;
-}
-const double complex::abs() const
-{
-  return sqrt(_Re * _Re + _Im * _Im);
-}
+  custom_complex(TYPE Re, TYPE Im)
+  {
+    _Re = Re;
+    _Im = Im;
+  }
+
+  ~custom_complex()
+  {
+    _Re, _Im = 0;
+  }
+
+  const custom_complex operator+(const custom_complex cmpl) const
+  {
+    return custom_complex(_Re + cmpl._Re, _Im + cmpl._Im);
+  }
+  const custom_complex operator-(const custom_complex cmpl) const
+  {
+    return custom_complex(_Re - cmpl._Re, _Im - cmpl._Im);
+  }
+  // void operator=(const custom_complex cmpl)
+  // {
+  //   this._Re = compl._Re;
+  //   this._Im = compl.Im;
+  // }
+  const bool operator==(const custom_complex cmpl) const
+  {
+    return _Re == cmpl._Re && _Im == cmpl._Im;
+  }
+
+  const double abs() const
+  {
+    return sqrt(this._Re * this._Re + this._Im * this._Im);
+  }
+ };
