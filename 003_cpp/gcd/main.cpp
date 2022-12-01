@@ -1,37 +1,31 @@
-#include <iostream>
 #include <cassert>
+#include <iostream>
 
-//const char console_sumbol[2] {'>',' '};
+int gcd(int a, int b) {
 
-int gcd(int a, int b) 
-{
+  if (a < 0)
+    a *= -1;
+  if (b < 0)
+    b *= -1;
 
-  if (a < 0) a *= -1;
-  if (b < 0) b *= -1;
-
-    while(a > 0 && b > 0)
-    {
-        if (a > b) {
-            a %= b; 
-        }
-        else {
-            b %= a;
-        } 
+  while (a > 0 && b > 0) {
+    if (a > b) {
+      a %= b;
+    } else {
+      b %= a;
     }
-  
-    if (a > 0) {
-        return a;
-     }
-    else if (b > 0) {
-        return b;
-    }
-    else {
-        return 1;
-    }
+  }
+
+  if (a > 0) {
+    return a;
+  } else if (b > 0) {
+    return b;
+  } else {
+    return 1;
+  }
 }
 
-int main() 
-{ // test block:
+int main() { // test block:
 
   assert(gcd(0, 5) == 5);
   assert(gcd(9, 0) == 9);
@@ -41,6 +35,5 @@ int main()
   assert(gcd(-30, -18) == 6);
   assert(gcd(270, 192) == 6);
 
-    
   return 0;
 }
