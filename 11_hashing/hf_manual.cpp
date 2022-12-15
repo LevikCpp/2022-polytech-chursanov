@@ -1,5 +1,6 @@
 #include "hash.h"
 #include <iostream>
+#include <string>
 
 int main() {
 
@@ -8,7 +9,8 @@ int main() {
 
   while (str != "stop") {
     std::cout << "Enter the str: ";
-    std::cin >> str;
+    std::getline(std::cin, str);
+    // std::cin >> str;
     std::cout << "Hash is " << default_hash(str) << ";" << std::endl;
   }
   return 0;
